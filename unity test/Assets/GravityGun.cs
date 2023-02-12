@@ -29,6 +29,7 @@ public class GravityGun : MonoBehaviour
         {
             if (grabbedRB)
             {
+
                 grabbedRB.isKinematic = false;
                 grabbedRB = null;
             }
@@ -39,8 +40,10 @@ public class GravityGun : MonoBehaviour
                 if (Physics.Raycast(ray, out hit, maxGrabDistance))
                 {
                     grabbedRB = hit.collider.gameObject.GetComponent<Rigidbody>();
+
                     if (grabbedRB)
                     {
+                        grabbedRB.AddForce(cam.transform.forward * throwForce, ForceMode.VelocityChange);
                         grabbedRB.isKinematic = true;
                     }
                 }
