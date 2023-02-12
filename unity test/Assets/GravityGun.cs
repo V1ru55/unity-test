@@ -43,7 +43,6 @@ public class GravityGun : MonoBehaviour
 
                     if (grabbedRB)
                     {
-                        grabbedRB.AddForce(cam.transform.forward * throwForce, ForceMode.VelocityChange);
                         grabbedRB.isKinematic = true;
                     }
                 }
